@@ -22,8 +22,15 @@ const getPostById = async (req, res) => {
     }
 };
 
+const findPost = async (req, res) => {
+    const { q } = req.query;
+    const post = await postService.findPost(q);
+    res.status(200).json(post);
+};
+
 
 module.exports = {
     allPosts,
-    getPostById
+    getPostById,
+    findPost,
 }
