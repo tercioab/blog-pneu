@@ -1,6 +1,13 @@
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom"
+import AllPosts from "./Blog/pages/allPosts"
+
 function App() {
   return (
-<h1>retorn</h1>
+    <BrowserRouter>
+      <switch>
+        <Route path='/' component={AllPosts} />
+      </switch>
+    </BrowserRouter>
   );
 }
 
