@@ -4,21 +4,26 @@ import Box from '@mui/material/Box';
 export default function MediaCardGroup() {
     return (
         <Box sx={{
-            mt: 2,
+            mt: 0,
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            mt: 2
-           }}  >
-            <MediaCard/>
-            <MediaCard/>
-            <MediaCard/>
-            <MediaCard/>
-            <MediaCard/>
-            <MediaCard/>
-            <MediaCard/>
-            <MediaCard/>
-            <MediaCard/>
-            </Box>
+            ml: 20,
+            mr: 20,
+        }}  >
+                <MediaCard/>
+                <MediaCard/>
+                <MediaCard/>
+                <MediaCard/>
+                <MediaCard/>
+                <MediaCard/>
+                <MediaCard/>
+                <MediaCard/>
+                <MediaCard/>
+        </Box>
+         
+       
+            
+          
     )
 }
