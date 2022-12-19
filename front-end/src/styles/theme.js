@@ -4,6 +4,7 @@ import { red } from '@mui/material/colors';
 
 export const roboto = Roboto({
   weight: ['300', '400', '500', '700'],
+  spacing: [0, 2, 3, 5, 8],
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
@@ -20,8 +21,8 @@ const theme = createTheme({
     error: {
       main: red.A400,
         }
-    },
-    
+  },
+
   background: {
    default: "#19857b"
   },
