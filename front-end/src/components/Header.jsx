@@ -20,7 +20,7 @@ function Header() {
     setAnchorElNav(currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = () => { 
     setAnchorElNav(null);
   };
 
@@ -35,11 +35,10 @@ function Header() {
             component="a"
             href="/"
             sx={{
-              mr: 2,
+              mr: 4,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
