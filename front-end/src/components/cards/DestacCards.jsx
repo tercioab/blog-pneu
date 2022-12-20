@@ -2,6 +2,7 @@ import Box from '@mui/material/Box';
 import FeaturedCardUnit from "./unit/FeaturedCard.unit";
 import FeaturedCardOfGroup from "./unit/FeaturedCardOfGroup";
 import { useEffect, useState } from 'react';
+import posts from '../../utils/posts.json'
 
 export default function DestacCards() {
 
@@ -9,12 +10,7 @@ export default function DestacCards() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-      async function fetchData() {
-        const response = await fetch('http://localhost:3000/post');
-        const data = await response.json();
-        setData(data);
-      }
-      fetchData();
+      setData(posts)
     }, []);
 
 
