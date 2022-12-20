@@ -1,20 +1,16 @@
 import MediaCard from "./unit/MediaCard.unit"
 import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
+import postsJson from '../../utils/posts.json'
 
 export default function MediaCardGroup() {
 
 
 
-    const [data, setData] = useState([]);
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-      async function fetchData() {
-        const response = await fetch('http://localhost:3000/post');
-        const data = await response.json();
-        setData(data);
-      }
-      fetchData();
+        setPosts(postsJson);
     }, []);
 
 
@@ -29,7 +25,7 @@ export default function MediaCardGroup() {
             mr: 20,
       }}  >
          
-        {data.map(({ title, image, preview }, i) => <MediaCard key={i} imageSrc={image} title={title} preview={preview} />)}
+        {posts.map(({ title, image, preview }, i) => <MediaCard key={i} imageSrc={image} title={title} preview={preview} />)}
         
         </Box>
          

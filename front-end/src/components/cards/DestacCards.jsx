@@ -2,15 +2,16 @@ import Box from '@mui/material/Box';
 import FeaturedCardUnit from "./unit/FeaturedCard.unit";
 import FeaturedCardOfGroup from "./unit/FeaturedCardOfGroup";
 import { useEffect, useState } from 'react';
-import posts from '../../utils/posts.json'
+import postsJson from '../../utils/posts.json'
 
 export default function DestacCards() {
 
 
-    const [data, setData] = useState([]);
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-      setData(posts)
+      setPosts(postsJson)
+      // console.log(posts.find(item => item.id === 2))
     }, []);
 
 
@@ -27,12 +28,12 @@ export default function DestacCards() {
                 mb: 6
         }}  >
 
-{data.slice(data.length - 1, data.length).map(({ title, image, preview }, i) => 
+{posts.slice(posts.length - 1, posts.length).map(({ title, image, preview }, i) => 
     <FeaturedCardUnit key={i} imageSrc={image} title={title} preview={preview} />)}
                 
                 
             
-            {data.slice(data.length - 8, data.length - 1).map(({ title, image, preview }, i) => <FeaturedCardOfGroup key={i} imageSrc={image} title={title} preview={preview} />)}
+            {posts.slice(posts.length - 8, posts.length - 1).map(({ title, image, preview }, i) => <FeaturedCardOfGroup key={i} imageSrc={image} title={title} preview={preview} />)}
             
            
             </Box>

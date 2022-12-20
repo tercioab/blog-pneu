@@ -1,6 +1,7 @@
 import Carousel from 'react-material-ui-carousel';
 import styles from '../styles/Carousel.module.css'
 import { useEffect, useState } from 'react';
+import postsJson from '../utils/posts.json'
 
 export default function CarouselComponent() {
 
@@ -8,15 +9,10 @@ export default function CarouselComponent() {
 
 
 
-    const [data, setData] = useState([]);
+    const [posts, setPosts] = useState([]);
     useEffect(() => {
-      async function fetchData() {
-        const response = await fetch('http://localhost:3000/post');
-          const data = await response.json();
-          const dataLength = await data.length
-        setData(data.slice(dataLength - 5, dataLength));
-      }
-      fetchData();
+          const postsLength = postsJson.length
+        setPosts(postsJson.slice(postsLength - 5, postsLength));
     }, []);
 
      
@@ -25,7 +21,7 @@ export default function CarouselComponent() {
 
            
        
-                {data.map(({ title, image }) => 
+                {posts.map(({ title, image }) => 
                     <>    
                    <h2 style={{
                     position: 'absolute',
