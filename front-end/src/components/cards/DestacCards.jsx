@@ -2,7 +2,8 @@ import Box from '@mui/material/Box';
 import FeaturedCardUnit from "./unit/FeaturedCard.unit";
 import FeaturedCardOfGroup from "./unit/FeaturedCardOfGroup";
 import { useEffect, useState } from 'react';
-import postsJson from '../../utils/posts.json'
+import postsJson from '../../utils/posts.json';
+
 
 export default function DestacCards() {
 

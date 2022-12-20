@@ -20,7 +20,11 @@ const theme = createTheme({
     },
     error: {
       main: red.A400,
-        }
+    },
+    
+    box: {
+      border: '1px solid black'
+    }
   },
 
   background: {

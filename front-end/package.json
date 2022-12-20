@@ -17,6 +17,7 @@
     "@mui/material": "latest",
     "@mui/utils": "^5.11.0",
     "@next/font": "latest",
+    "html-react-parser": "^3.0.4",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
