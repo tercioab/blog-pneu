@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
-import FeaturedCard from "./unit/FeaturedCard.unit";
-import FeaturedCards2 from "./unit/FeaturedCardOfGroup";
+import FeaturedCardUnit from "./unit/FeaturedCard.unit";
+import FeaturedCardOfGroup from "./unit/FeaturedCardOfGroup";
 import { useEffect, useState } from 'react';
 
 export default function DestacCards() {
@@ -20,22 +20,29 @@ export default function DestacCards() {
 
 
     return (
-        <Box sx={{
-            mt: 0,
+        <>
+              <Box sx={{
+            mt: 6,
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
             ml: 20,
-            mr: 20,
+                mr: 20,
+                mb: 6
         }}  >
 
 {data.slice(data.length - 1, data.length).map(({ title, image, preview }, i) => 
-<FeaturedCard key={i} imageSrc={image} title={title} preview={preview} />)}
-
-{ data.slice(data.length - 4, data.length - 1).map(({ title, image, preview }, i) => <FeaturedCards2 key={i} imageSrc={image} title={title} preview={preview} />) }
-
-
-        </Box>
-         
+    <FeaturedCardUnit key={i} imageSrc={image} title={title} preview={preview} />)}
+                
+                
+            
+            {data.slice(data.length - 8, data.length - 1).map(({ title, image, preview }, i) => <FeaturedCardOfGroup key={i} imageSrc={image} title={title} preview={preview} />)}
+            
+           
+            </Box>
+            
+            <hr/>
+        
+        </>
      )
  }

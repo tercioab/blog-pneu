@@ -29,7 +29,7 @@ export default function MediaCardGroup() {
             mr: 20,
       }}  >
          
-        {data.slice(0, data.length - 4).map(({ title, image, preview }, i) => <MediaCard key={i} imageSrc={image} title={title} preview={preview} />)}
+        {data.map(({ title, image, preview }, i) => <MediaCard key={i} imageSrc={image} title={title} preview={preview} />)}
         
         </Box>
          
