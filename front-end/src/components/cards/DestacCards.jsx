@@ -11,12 +11,11 @@ export default function DestacCards() {
 
     useEffect(() => {
       setPosts(postsJson)
-      // console.log(posts.find(item => item.id === 2))
     }, []);
 
 
 
-    return (
+    return ( 
         <>
               <Box sx={{
             mt: 6,
@@ -28,12 +27,13 @@ export default function DestacCards() {
                 mb: 6
         }}  >
 
-{posts.slice(posts.length - 1, posts.length).map(({ title, image, preview }, i) => 
-    <FeaturedCardUnit key={i} imageSrc={image} title={title} preview={preview} />)}
+          {posts
+            .slice(posts.length - 1, posts.length).map(({ title, image, preview }, i) => 
+            <FeaturedCardUnit key={i} imageSrc={image} title={title} preview={preview} />)}
                 
-                
-            
-            {posts.slice(posts.length - 8, posts.length - 1).map(({ title, image, preview }, i) => <FeaturedCardOfGroup key={i} imageSrc={image} title={title} preview={preview} />)}
+          {posts
+            .slice(posts.length - 8, posts.length - 1)
+            .map(({ title, image, preview }, i) => <FeaturedCardOfGroup key={i} imageSrc={image} title={title} preview={preview} />)}
             
            
             </Box>
