@@ -49,11 +49,11 @@
 
 
 p {
-
   line-height: 0.7cm; 
   text-align: justify; 
 }
 
 h2 {
-  line-height: 2cm;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }

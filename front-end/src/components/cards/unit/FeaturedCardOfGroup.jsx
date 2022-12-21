@@ -6,7 +6,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function FeaturedCards2({imageSrc, title, preview}) {
+export default function FeaturedCards2({imageSrc, title, preview, id}) {
   return (
     <Card sx={{ maxWidth: 210, minWidth: 250 , m: 2 }}>
       <CardMedia
@@ -24,7 +24,7 @@ export default function FeaturedCards2({imageSrc, title, preview}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Ir para materia</Button>
+        <Button size="small" href={`posts/${id}`} >Ir para materia</Button>
       </CardActions>
     </Card>
   );

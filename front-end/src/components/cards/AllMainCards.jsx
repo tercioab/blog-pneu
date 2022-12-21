@@ -13,19 +13,32 @@ export default function MediaCardGroup() {
         setPosts(postsJson);
     }, []);
 
-
-
     return (
         <Box sx={{
-            mt: 0,
+            mt: 10,
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            ml: 20,
-            mr: 20,
+        mb: 6,
+
+        [`@media (max-width: 599px)`]: {
+          marginLeft: 0,
+          marginRight: 0,
+        },
+
+        [`@media (min-width: 600px)`]: {
+          marginLeft: 8,
+          marginRight: 8,
+        },
+        
+       
+        [`@media (min-width: 960px)`]: {
+          marginLeft: 30,
+          marginRight: 30,
+        },
       }}  >
          
-        {posts.map(({ title, image, preview }, i) => <MediaCard key={i} imageSrc={image} title={title} preview={preview} />)}
+        {posts.map(({ title, image, preview, id }, i) => <MediaCard id={id} key={i} imageSrc={image} title={title} preview={preview} />)}
         
         </Box>
          
