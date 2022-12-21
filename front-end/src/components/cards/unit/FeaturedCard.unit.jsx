@@ -9,10 +9,10 @@ import Typography from '@mui/material/Typography';
 export default function FeaturedCard({ imageSrc, title, preview, id }) {
     
   return (
-    <Card sx={{ maxWidth: 540, minWidth: 250 , m: 2 }}>
+    <Card sx={{ maxWidth: 557, minWidth: 250 , m: 2 }}>
       <CardMedia
         component="img"
-        height="300"
+        height="330"
         image={imageSrc}
         alt={title}
       />

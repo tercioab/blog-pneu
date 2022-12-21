@@ -16,18 +16,22 @@ export default function DestacCards() {
 
 
 
-    return ( 
-        <>
+  return ( 
+    <>
+      
+  
+        
               <Box sx={{
             mt: 10,
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'center',
+            justifyContent: 'left',
             mb: 6,
 
         [`@media (max-width: 599px)`]: {
           marginLeft: 0,
           marginRight: 0,
+          justifyContent: 'center',
         },
         
         [`@media (min-width: 600px)`]: {
@@ -36,8 +40,8 @@ export default function DestacCards() {
         },
       
         [`@media (min-width: 960px)`]: {
-          marginLeft: 30,
-          marginRight: 30,
+          marginLeft: 37,
+          marginRight: 37,
         },
         
         }}  >
@@ -47,11 +51,12 @@ export default function DestacCards() {
             <FeaturedCardUnit key={i}  id={id} imageSrc={image} title={title} preview={preview} />)}
                 
           {posts
-            .slice(posts.length - 8, posts.length - 1)
+            .slice(posts.length - 7, posts.length - 1)
             .map(({ title, image, preview, id }, i) => <FeaturedCardOfGroup key={i} id={id} imageSrc={image} title={title} preview={preview} />)}
             
            
-            </Box>
+        </Box>
+   
             
             <hr/>
         

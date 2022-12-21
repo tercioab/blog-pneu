@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import postsJson from '../utils/posts.json';
 import Button from '@mui/material/Button';
 
+
 export default function CarouselComponent() {
 
 
@@ -42,6 +43,7 @@ export default function CarouselComponent() {
                         <img src={image} alt="Image 1" />
 
                         <p
+                            
                             style={{
                                 position: 'absolute',
                                 top: '40%',
@@ -49,7 +51,8 @@ export default function CarouselComponent() {
                                 marginRight: '5%',
                                 marginTop: '0.5rem', 
                                 zIndex: 1,
-                                color: 'white'
+                                color: 'white',
+
                             }}
                         >{preview}</p>
                         </>
