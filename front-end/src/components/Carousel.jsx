@@ -46,7 +46,7 @@ export default function CarouselComponent() {
                             
                             style={{
                                 position: 'absolute',
-                                top: '40%',
+                                top: '50%',
                                 left: '20.4%',
                                 marginRight: '5%',
                                 marginTop: '0.5rem', 

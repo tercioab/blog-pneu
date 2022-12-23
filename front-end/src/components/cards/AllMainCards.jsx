@@ -1,14 +1,12 @@
 import MediaCard from "./unit/MediaCard.unit"
 import { useEffect, useState } from 'react';
 import postsJson from '../../utils/posts.json'
-import  myContext from '../../context/context'
-import { useContext } from 'react'
+import Box from '@mui/material/Box';
 
 
 
 export default function MediaCardGroup() {
 
-  const { results }  = useContext(myContext);
 
     const [posts, setPosts] = useState([]);
 
@@ -16,14 +14,40 @@ export default function MediaCardGroup() {
         setPosts(postsJson);
     }, []);
   
-  const postsResult = (postsReturn) => {
-  return  postsReturn.map(({ title, image, preview, id }, i) => <MediaCard id={id} key={i} imageSrc={image} title={title} preview={preview} />)
+  const postsResult = () => {
+  return  posts.map(({ title, image, preview, id }, i) => <MediaCard id={id} key={i} imageSrc={image} title={title} preview={preview} />)
   }
 
     return (
       
-         <>
-        {(results.length && postsResult(results)) || (postsResult(posts))}
+      <>
+         <Box sx={{
+            mt: 3,
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+        mb: 6,
+
+        [`@media (max-width: 599px)`]: {
+          marginLeft: 0,
+          marginRight: 0,
+        },
+
+        [`@media (min-width: 600px)`]: {
+          marginLeft: 8,
+          marginRight: 8,
+        },
+        
+       
+        [`@media (min-width: 960px)`]: {
+          marginLeft: 30,
+          marginRight: 30,
+        },
+        }}  >
+          
+          {postsResult(posts)}
+          
+        </Box>
         </>
     
          

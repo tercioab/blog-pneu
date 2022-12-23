@@ -19,17 +19,12 @@ export default function Home() {
 
   return (
     <>
-      <MyContextProvider>
+        <MyContextProvider>
         <Header />
-      <Carousel />
-      <SearchBar />
-     <AllCards />
+        <Carousel />
+        <SearchBar />
+        <AllCards />
         </MyContextProvider>
-
-   
-
-
-     
       </>
   )
 }

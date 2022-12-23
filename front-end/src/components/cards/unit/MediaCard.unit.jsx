@@ -30,7 +30,7 @@ export default function MediaCard({imageSrc, title, preview, id}) {
       </CardContent>
       <CardActions>
         <Button
-         href={`posts/${id}`}
+         href={`/posts/${id}`}
           size="small">
           
           Ir para materia
