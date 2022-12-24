@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Input from "../custoKm/inputs";
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
 
 export default function Form() {
 	const [form, setform] = useState([
@@ -70,9 +72,9 @@ export default function Form() {
 	return (
 		<>
 			<div className='form-master'>
-				{form.map(({ key, price, marca, km }, index) => (
+				{form.map(({ key, price, marca, km }) => (
 					<form key={key} onSubmit={prevent} className='form-dados'>
-						{index}
+
 						<Input
 							phText='KM'
 							ph='Digite a kilometragem'
@@ -82,9 +84,17 @@ export default function Form() {
 							func={event => onHandleChange(key, event)}
 						/>
 						<button onClick={addForm}>+</button>
+
 					</form>
 				))}
-				<button onClick={onClick}>enviar</button>
+    
+                
+
+
+                <Button variant="contained" onClick={onClick} endIcon={<SendIcon />}>
+  enviar
+                </Button>
+                
 			</div>
 			
 			{result
