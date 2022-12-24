@@ -1,7 +1,7 @@
 
 import AllMainCards from './AllMainCards'
 import DestacCards from './DestacCards';
-import MediaCard from "./unit/MediaCard.unit"
+import MediaCardRelatives from "./unit/mediaCardRelatives"
 import myContext from '../../context/context';
 import { useContext } from 'react';
 import Typography from '@mui/material/Typography';
@@ -13,7 +13,7 @@ export default function AllCards() {
   
     
   const searchResult = () => {
-    return  results.map(({ title, image, preview, id }, i) => <MediaCard id={id} key={i} imageSrc={image} title={title} preview={preview} />)
+    return  results.map(({ title, image, preview, id }, i) => <MediaCardRelatives id={id} key={i} imageSrc={image} title={title} preview={preview} />)
   }
   
 
@@ -45,7 +45,7 @@ export default function AllCards() {
     },
   }}  >
         
-     {   searchResult()}
+     {searchResult()}
       
       
       

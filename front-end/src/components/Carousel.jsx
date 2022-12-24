@@ -40,7 +40,7 @@ export default function CarouselComponent() {
                                 
                             }}
                             size="big" href={`posts/${id}`} ><h1>{title}</h1></Button>
-                        <img src={image} alt="Image 1" />
+                        <img  src={image} alt="Image 1" />
 
                         <p
                             

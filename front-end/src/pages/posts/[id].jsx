@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Header from '../../components/Header';
 import CardMedia from '@mui/material/CardMedia';
 import ParseHtml from 'html-react-parser';
-import MediaCard from "../../components/cards/unit/MediaCard.unit"
+import MediaCardRelatives from "../../components/cards/unit/mediaCardRelatives"
 
 
 export async function getStaticPaths() {
@@ -48,14 +48,16 @@ export default function PostById({ post }) {
       .filter(({ id }) => id !== post.id);
     
     return posts
-      .map(({ title, image, preview, id }, i) => <MediaCard id={id} key={i} imageSrc={image} title={title} preview={preview} />);
+      .map(({ title, image, preview, id }, i) => <MediaCardRelatives id={id} key={i} imageSrc={image} title={title} preview={preview} />);
 };
 
 
 searchCategories()
 
     return (
-        <>
+      <>
+      
+     
           <Header/>
 
             <Box sx={{
@@ -66,8 +68,8 @@ searchCategories()
           mb: 6,
 
           [`@media (max-width: 599px)`]: {
-            marginLeft: 0,
-            marginRight: 0,
+            marginLeft: 2,
+            marginRight: 2,
           },
 
 
@@ -169,8 +171,8 @@ searchCategories()
        
 
           [`@media (min-width: 960px)`]: {
-            marginLeft: 35,
-            marginRight: 35,
+            marginLeft: 20,
+            marginRight: 20,
           },
           
 
@@ -179,7 +181,7 @@ searchCategories()
          
              }}>
 
-{searchCategories()}
+{searchCategories().slice(0, 4)}
         
     
         </Box>
