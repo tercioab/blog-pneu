@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import myContext from '../context/context';
 import postsJson from '../utils/posts.json'
-import { Box, TextField, Button } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';

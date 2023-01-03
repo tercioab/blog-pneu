@@ -1,12 +1,18 @@
+
 import postsJson from '../../utils/posts.json';
 import Box from '@mui/material/Box';
 import Header from '../../components/Header';
+import myContext from '../../context/context';
+import { useContext } from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import ParseHtml from 'html-react-parser';
 import MediaCardRelatives from "../../components/cards/unit/mediaCardRelatives"
 
 
+
+
 export async function getStaticPaths() {
+
     const paths = postsJson.map((product) => ({
       params: { id: product.id.toString() },
     }));
@@ -33,8 +39,6 @@ export async function getStaticProps({ params }) {
   
 export default function PostById({ post }) {
 
-
-
   const searchCategories = () => {
     const searchPostCategory = post.categories
       .map(({ id }) => id);
@@ -54,10 +58,10 @@ export default function PostById({ post }) {
 
 searchCategories()
 
-    return (
+  return (
+  
       <>
-      
-     
+   
           <Header/>
 
             <Box sx={{
@@ -77,19 +81,12 @@ searchCategories()
             marginLeft: 8,
             marginRight: 8,
           },
-          
-         
        
 
           [`@media (min-width: 960px)`]: {
             marginLeft: 35,
             marginRight: 35,
           },
-          
-
-       
-       
-         
              }}>
 
               <CardMedia sx={{ mb:3, maxHeight: 300, minHeight: 199 }} component="img" image={post.image}  alt={post.title} />
@@ -106,7 +103,6 @@ searchCategories()
 
         <hr/>
 
-
           <Box sx={{
               mt: 6,
               display: 'flex',
@@ -119,36 +115,20 @@ searchCategories()
             marginRight: 0,
           },
 
-
           [`@media (min-width: 600px)`]: {
             marginLeft: 8,
             marginRight: 8,
           },
           
-         
-       
-
           [`@media (min-width: 960px)`]: {
             marginLeft: 35,
             marginRight: 35,
-          },
-          
-
-       
-       
-         
+          },   
              }}>
 
 <h3>Posts Relacionados</h3>
-        
-    
+      
         </Box>
-
-
-   
-
-
-
 
         <Box sx={{
               display: 'flex',
@@ -187,5 +167,6 @@ searchCategories()
         </Box>
 
         </>
+     
     ) 
 }

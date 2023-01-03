@@ -6,11 +6,14 @@ import PropTypes from 'prop-types';
 
 function  MyContextProvider({children}) {
   const [results, setResults] = useState([]);
+  const [resultkm, setResultkm] = useState([]);
 
   const searchValues = {
     results,
     setResults,
-   
+    resultkm,
+    setResultkm,
+
   }
 
   return (

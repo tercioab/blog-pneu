@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from 'react';
+import myContext from '../../context/context';
 import Input from "../custoKm/inputs";
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import Box from '@mui/material/Box';
 
 export default function Form() {
+
+	const { setResultkm, resultkm } = useContext(myContext);
+	
 	const [form, setform] = useState([
 		{
 			marca: "",
@@ -13,7 +18,7 @@ export default function Form() {
 		},
 	]);
 
-	const [result, setResult] = useState([]);
+	
 
 	const addForm = () => {
 		setform(prev => [
@@ -52,7 +57,7 @@ export default function Form() {
 				km,
 				price,
 			};
-			setResult(prev => [...prev, finalResult]);
+			setResultkm(prev => [...prev, finalResult]);
 		});
 
 		setform([
@@ -72,7 +77,30 @@ export default function Form() {
 	return (
 		<>
 			<div className='form-master'>
-				{form.map(({ key, price, marca, km }) => (
+				<Box
+					 sx={{
+						mt: 20,
+						display: 'flex',
+						flexWrap: 'wrap',
+						justifyContent: 'center',
+				  
+					[`@media (max-width: 599px)`]: {
+					  marginLeft: 0,
+					  marginRight: 0,
+					},
+				  
+					[`@media (min-width: 600px)`]: {
+					  marginLeft: 8,
+					  marginRight: 8,
+					},
+					
+				   
+					[`@media (min-width: 960px)`]: {
+					  marginLeft: 30,
+					  marginRight: 30,
+					},
+						}}
+				>				{form.map(({ key, price, marca, km }) => (
 					<form key={key} onSubmit={prevent} className='form-dados'>
 
 						<Input
@@ -86,18 +114,28 @@ export default function Form() {
 						<button onClick={addForm}>+</button>
 
 					</form>
-				))}
-    
-                
+				))}			
+				</Box>
 
+				<Box
+					sx={{
+						display: 'flex',
+						justifyContent: 'center',
+					}}
+				>
+				<Button
+				
+					variant="contained" onClick={onClick} endIcon={<SendIcon />}>
+  					enviar
+					</Button>
+				</Box>
+				
 
-                <Button variant="contained" onClick={onClick} endIcon={<SendIcon />}>
-  enviar
-                </Button>
+				
                 
 			</div>
 			
-			{result
+			{resultkm
 				.sort((a, b) => a.result - b.result)
 				.map(
 					({ result, marca, km, price }, index) =>
