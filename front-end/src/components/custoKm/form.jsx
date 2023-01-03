@@ -4,10 +4,11 @@ import Input from "../custoKm/inputs";
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Box from '@mui/material/Box';
+import { useRouter } from 'next/router'
 
 export default function Form() {
-
-	const { setResultkm, resultkm } = useContext(myContext);
+	const router = useRouter()
+	const { setResultkm } = useContext(myContext);
 	
 	const [form, setform] = useState([
 		{
@@ -58,6 +59,7 @@ export default function Form() {
 				price,
 			};
 			setResultkm(prev => [...prev, finalResult]);
+			router.push('/result')
 		});
 
 		setform([
@@ -84,21 +86,33 @@ export default function Form() {
 						flexWrap: 'wrap',
 						justifyContent: 'center',
 				  
-					[`@media (max-width: 599px)`]: {
-					  marginLeft: 0,
-					  marginRight: 0,
-					},
-				  
-					[`@media (min-width: 600px)`]: {
-					  marginLeft: 8,
-					  marginRight: 8,
-					},
+					[`@media (min-width: 1000px)`]: {
+					  marginLeft: 60,
+					  marginRight: 60,
+						},
 					
-				   
-					[`@media (min-width: 960px)`]: {
-					  marginLeft: 30,
-					  marginRight: 30,
-					},
+					
+						[`@media (max-width: 1500px)`]: {
+							marginLeft: 30,
+							marginRight: 30,
+						},
+						
+						[`@media (max-width: 828px)`]: {
+							marginLeft: 20,
+							marginRight: 20,
+						},
+						
+						[`@media (max-width: 668px)`]: {
+							marginLeft: 10,
+							marginRight: 10,
+						},
+						
+						[`@media (max-width: 412px)`]: {
+							marginLeft: 1,
+							marginRight: 1,
+						  },
+				
+				
 						}}
 				>				{form.map(({ key, price, marca, km }) => (
 					<form key={key} onSubmit={prevent} className='form-dados'>
@@ -135,21 +149,6 @@ export default function Form() {
                 
 			</div>
 			
-			{resultkm
-				.sort((a, b) => a.result - b.result)
-				.map(
-					({ result, marca, km, price }, index) =>
-						price &&
-						marca &&
-						km && (
-							<div key={index} className='result-div'>
-								<h3>Marca:{marca}</h3>
-								<h3>Km:{km}</h3>
-								<h3>Preço:{price}</h3>
-								<h3 id={`l${index}`}>Valor Por Km:{result}</h3>
-							</div>
-						),
-				)}
 		</>
 	);
 }
