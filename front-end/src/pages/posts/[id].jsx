@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import CardMedia from '@mui/material/CardMedia';
 import ParseHtml from 'html-react-parser';
 import MediaCardRelatives from "../../components/cards/unit/mediaCardRelatives"
-
+import SearchBar from '../../components/SearchBar'
 
 
 
@@ -39,6 +39,10 @@ export async function getStaticProps({ params }) {
   
 export default function PostById({ post }) {
 
+
+  const { results, searchResult } = useContext(myContext);
+
+
   const searchCategories = () => {
     const searchPostCategory = post.categories
       .map(({ id }) => id);
@@ -56,15 +60,51 @@ export default function PostById({ post }) {
 };
 
 
-searchCategories()
 
   return (
   
       <>
+
+      
    
           <Header/>
+          <SearchBar />
+      
+      {((results.length &&
+      
+        <Box sx={{
+          mt: 10,
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          mb: 6,
 
-            <Box sx={{
+          [`@media (max-width: 599px)`]: {
+            marginLeft: 0,
+            marginRight: 0,
+          },
+
+          [`@media (min-width: 600px)`]: {
+            marginLeft: 8,
+            marginRight: 8,
+          },
+    
+   
+          [`@media (min-width: 960px)`]: {
+            marginLeft: 30,
+            marginRight: 30,
+          },
+        }}  >
+        
+          {searchResult()}
+      
+      
+      
+        </Box>
+      
+      ) || (<>
+      
+      <Box sx={{
               mt: 10,
               display: 'flex',
               flexWrap: 'wrap',
@@ -96,10 +136,6 @@ searchCategories()
               <br /> 
               {ParseHtml(post.content)}
         </Box>
-        
-        
-
-        
 
         <hr/>
 
@@ -126,7 +162,7 @@ searchCategories()
           },   
              }}>
 
-<h3>Posts Relacionados</h3>
+         <h3>Posts Relacionados</h3>
       
         </Box>
 
@@ -165,7 +201,9 @@ searchCategories()
         
     
         </Box>
+</>))}
 
+          
         </>
      
     ) 
