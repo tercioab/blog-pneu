@@ -11,8 +11,9 @@ import Paper from '@mui/material/Paper';
 export default function Form() {
 	const router = useRouter()
 
-	const { setResultkm} = useContext(myContext);
-	
+	const { setResultkm } = useContext(myContext);
+	const [isValid, setBtnValid] = useState(false);
+
 	const [form, setform] = useState([
 		{
 			marca: "",
@@ -38,6 +39,8 @@ export default function Form() {
 
 	const onHandleChange = (key, { target }) => {
 		const { name, value } = target;
+		
+		
 		setform(prev => {
 			const newState = prev.map(product => {
 				if (product.key === key) {
@@ -46,8 +49,12 @@ export default function Form() {
 						[name]: value,
 					};
 				}
+			 
 				return product;
 			});
+
+			((newState[0].marca && newState[0].km && newState[0].price) && setBtnValid(true))
+			
 			return newState;
 		});
 	};
@@ -78,7 +85,7 @@ export default function Form() {
 	const preventForm = e => {
 		e.preventDefault();
 	};
-
+	
 	return (
 		<>
 			<div className='form-master'>
@@ -111,11 +118,6 @@ export default function Form() {
 							marginRight: 20,
 						},
 						
-						
-						// [`@media (max-width: 828px)`]: {
-						// 	marginLeft: 20,
-						// 	marginRight: 20,
-						// },
 
 						[`@media (max-width: 720px)`]: {
 							marginLeft: 15,
@@ -166,7 +168,7 @@ export default function Form() {
 				>
 				<Button
 				    sx={{mt: 3}}
-					variant="contained" onClick={onSendClick} endIcon={<SendIcon />}>
+					variant="contained" disabled={ !isValid } onClick={onSendClick} endIcon={<SendIcon />}>
   					enviar
 					</Button>
 				</Box>
