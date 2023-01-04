@@ -5,10 +5,13 @@ import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
 import Box from '@mui/material/Box';
 import { useRouter } from 'next/router'
+import Paper from '@mui/material/Paper';
+
 
 export default function Form() {
 	const router = useRouter()
-	const { setResultkm } = useContext(myContext);
+
+	const { setResultkm} = useContext(myContext);
 	
 	const [form, setform] = useState([
 		{
@@ -49,7 +52,7 @@ export default function Form() {
 		});
 	};
 
-	const onClick = () => {
+	const onSendClick = () => {
 		form.forEach(({ marca, price, km }) => {
 
 			const finalResult = {
@@ -59,7 +62,7 @@ export default function Form() {
 				price,
 			};
 			setResultkm(prev => [...prev, finalResult]);
-			router.push('/result')
+		    router.push('/result')
 		});
 
 		setform([
@@ -72,14 +75,14 @@ export default function Form() {
 		]);
 	};
 
-	const prevent = e => {
+	const preventForm = e => {
 		e.preventDefault();
 	};
 
 	return (
 		<>
 			<div className='form-master'>
-				<Box
+				<Paper
 					 sx={{
 						mt: 20,
 						display: 'flex',
@@ -87,8 +90,13 @@ export default function Form() {
 						justifyContent: 'center',
 				  
 					[`@media (min-width: 1000px)`]: {
-					  marginLeft: 60,
-					  marginRight: 60,
+					  marginLeft: 65,
+					  marginRight: 65,
+						},
+					
+						[`@media (max-width: 1632px)`]: {
+							marginLeft: 50,
+							marginRight: 50,
 						},
 					
 					
@@ -96,16 +104,35 @@ export default function Form() {
 							marginLeft: 30,
 							marginRight: 30,
 						},
-						
-						[`@media (max-width: 828px)`]: {
+
+
+						[`@media (max-width: 1072px)`]: {
 							marginLeft: 20,
 							marginRight: 20,
+						},
+						
+						
+						// [`@media (max-width: 828px)`]: {
+						// 	marginLeft: 20,
+						// 	marginRight: 20,
+						// },
+
+						[`@media (max-width: 720px)`]: {
+							marginLeft: 15,
+							marginRight: 15,
 						},
 						
 						[`@media (max-width: 668px)`]: {
 							marginLeft: 10,
 							marginRight: 10,
 						},
+
+							
+						[`@media (max-width: 464px)`]: {
+							marginLeft: 5,
+							marginRight: 5,
+						},
+						
 						
 						[`@media (max-width: 412px)`]: {
 							marginLeft: 1,
@@ -115,7 +142,7 @@ export default function Form() {
 				
 						}}
 				>				{form.map(({ key, price, marca, km }) => (
-					<form key={key} onSubmit={prevent} className='form-dados'>
+					<form key={key} onSubmit={preventForm} className='form-dados'>
 
 						<Input
 							phText='KM'
@@ -125,11 +152,11 @@ export default function Form() {
 							marcaValue={marca}
 							func={event => onHandleChange(key, event)}
 						/>
-						<button onClick={addForm}>+</button>
+						<Button ariant="contained" sx={{mt: 2}} onClick={addForm}><h3>+</h3></Button>
 
 					</form>
 				))}			
-				</Box>
+				</Paper>
 
 				<Box
 					sx={{
@@ -138,8 +165,8 @@ export default function Form() {
 					}}
 				>
 				<Button
-				
-					variant="contained" onClick={onClick} endIcon={<SendIcon />}>
+				    sx={{mt: 3}}
+					variant="contained" onClick={onSendClick} endIcon={<SendIcon />}>
   					enviar
 					</Button>
 				</Box>
