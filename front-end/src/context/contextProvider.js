@@ -8,6 +8,11 @@ import MediaCardRelatives from "../components/cards/unit/mediaCardRelatives"
 function  MyContextProvider({children}) {
   const [results, setResults] = useState([]);
   const [resultkm, setResultkm] = useState([]);
+  const [kmOrHr, setKmOrHr] = useState({
+    phText: 'Km',
+    placehoder: 'Digite a kilometragem',
+    btn: 'Mudar para Hora',
+  })
 
 
   const searchResult = () => {
@@ -21,6 +26,8 @@ function  MyContextProvider({children}) {
     resultkm,
     setResultkm,
     searchResult,
+    kmOrHr,
+    setKmOrHr,
   }
 
 

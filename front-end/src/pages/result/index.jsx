@@ -15,7 +15,7 @@ import { Box } from '@mui/material';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
 	[`&.${tableCellClasses.head}`]: {
-	  backgroundColor: theme.palette.common.black,
+	  backgroundColor: '#01579b',
 	  color: theme.palette.common.white,
 	},
 	[`&.${tableCellClasses.body}`]: {
@@ -27,7 +27,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 	'&:nth-of-type(odd)': {
 	  backgroundColor: theme.palette.action.hover,
 	},
-	// hide last border
 	'&:last-child td, &:last-child th': {
 	  border: 0,
 	},
@@ -35,20 +34,21 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 export default function CustoKm() {
 
-    const { resultkm } = useContext(myContext);
+	const { resultkm, kmOrHr} = useContext(myContext);
+	
     
     return (
         <>
 			<Header />
 			<Box sx={{ mt: 3, ml: 6, mr: 6 }}>
 			<TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      <Table aria-label="customized table">
         <TableHead>
           <TableRow>
             <StyledTableCell>Marca</StyledTableCell>
-            <StyledTableCell align="right">Km</StyledTableCell>
+			<StyledTableCell align="right">{kmOrHr.phText }</StyledTableCell>
             <StyledTableCell align="right">Preço</StyledTableCell>
-            <StyledTableCell align="right">Valor por Km</StyledTableCell>
+			<StyledTableCell align="right">Valor por {kmOrHr.phText }</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>

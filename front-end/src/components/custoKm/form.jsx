@@ -11,7 +11,7 @@ import Paper from '@mui/material/Paper';
 export default function Form() {
 	const router = useRouter()
 
-	const { setResultkm } = useContext(myContext);
+	const { setResultkm, kmOrHr, setKmOrHr } = useContext(myContext);
 	const [isValid, setBtnValid] = useState(false);
 
 	const [form, setform] = useState([
@@ -22,6 +22,22 @@ export default function Form() {
 			key: Date.now(),
 		},
 	]);
+
+	const onClickchangeFormat = () => {
+		if(kmOrHr.phText === "Km")
+		{
+			setKmOrHr({
+				phText: 'Horas',
+				placehoder: 'Digite as Horas',
+				btn: 'Mudar para Km',
+		   })
+		} else 
+		setKmOrHr({
+			phText: 'Km',
+			placehoder: 'Digite a kilometragem',
+			btn: 'Mudar para Horas',
+		});
+	}
 
 	
 
@@ -147,8 +163,8 @@ export default function Form() {
 					<form key={key} onSubmit={preventForm} className='form-dados'>
 
 						<Input
-							phText='KM'
-							ph='Digite a kilometragem'
+							phText={kmOrHr.phText}
+							ph={kmOrHr.placehoder}
 							kmValue={km}
 							priceValue={price}
 							marcaValue={marca}
@@ -171,7 +187,17 @@ export default function Form() {
 					variant="contained" disabled={ !isValid } onClick={onSendClick} endIcon={<SendIcon />}>
   					enviar
 					</Button>
+
+					<Button
+				    sx={{mt: 3, ml: 1}}
+					variant="contained" onClick={ onClickchangeFormat } >
+  					{kmOrHr.btn}
+				</Button>
 				</Box>
+
+
+				
+			
 				
 
 				
