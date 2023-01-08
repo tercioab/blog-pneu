@@ -11,7 +11,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { Box } from '@mui/material';
-
+import { useRouter } from 'next/router'
+import Button from '@mui/material/Button';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
 	[`&.${tableCellClasses.head}`]: {
@@ -33,9 +34,13 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 export default function CustoKm() {
-
-	const { resultkm, kmOrHr} = useContext(myContext);
+	const router = useRouter()
+	const { resultkm,setResultkm,  kmOrHr} = useContext(myContext);
 	
+	const onClick = () => {
+		 setResultkm([])
+		 router.push('/custokm')
+	}
     
     return (
         <>
@@ -73,6 +78,18 @@ export default function CustoKm() {
          </TableBody>
       </Table>
 				</TableContainer>
+				<Box
+					sx={{
+						display: 'flex',
+						justifyContent: 'center',
+					}}
+				>
+					<Button
+				    sx={{mt: 3, ml: 1 }}
+					variant="contained" onClick={ onClick } >
+  					Voltar
+				</Button>
+				</Box>
 				</Box>
             </>
     )

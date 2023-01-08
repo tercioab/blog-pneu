@@ -35,7 +35,7 @@ export default function Form() {
 		setKmOrHr({
 			phText: 'Km',
 			placehoder: 'Digite a kilometragem',
-			btn: 'Mudar para Horas',
+			btn: 'Mudar para Hora',
 		});
 	}
 
@@ -76,6 +76,7 @@ export default function Form() {
 	};
 
 	const onSendClick = () => {
+		
 		form.forEach(({ marca, price, km }) => {
 
 			const finalResult = {
@@ -85,8 +86,10 @@ export default function Form() {
 				price,
 			};
 			setResultkm(prev => [...prev, finalResult]);
-		    router.push('/result')
+		    
 		});
+
+		router.push('/result')
 
 		setform([
 			{
@@ -189,7 +192,9 @@ export default function Form() {
 					</Button>
 
 					<Button
-				    sx={{mt: 3, ml: 1}}
+				    sx={{mt: 3, ml: 1, background: '#2e7d32' ,  '&:hover': {
+						background: '#1b5e20',
+					  }, }}
 					variant="contained" onClick={ onClickchangeFormat } >
   					{kmOrHr.btn}
 				</Button>
