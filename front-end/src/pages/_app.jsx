@@ -10,6 +10,7 @@ import theme from '../styles/theme';
 import createEmotionCache from '../utils/createEmotionCache';
 import '../styles/globals.css'
 import MyContextProvider from "../context/contextProvider";
+import Footer from '../components/Footer';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -27,6 +28,7 @@ export default function MyApp(props) {
         <Component {...pageProps} />
       </ThemeProvider>
       </CacheProvider>
+      <Footer />
     </MyContextProvider>
   );
 }
