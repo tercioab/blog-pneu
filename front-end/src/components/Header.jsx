@@ -11,8 +11,8 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const pages = [
-	// { name: "Custo Do Km", link: "custokm" },
-	// { name: "inicio", link: "" },
+	{ name: "Custo Do Km", link: "custokm" },
+	{ name: "inicio", link: "" },
 ];
 
 function Header() {
@@ -44,7 +44,7 @@ function Header() {
 							textDecoration: "none",
 						}}
 					>
-						WALTHERCIO BLOG
+						SEU PNEU GIT
 					</Typography>
 
 					<Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
